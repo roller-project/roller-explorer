@@ -33,12 +33,12 @@
 			<ul class="blocks">
 				<?php for($i=0; $i<10; $i++){ ?>
 				 	<li  style="position: relative; display: block; margin-bottom: 10px; overflow: hidden;">
-						<div class="w-20 bg-info text-white" style="float: left; min-width: 20%; padding: 20px;">
+						<div class="w-20 bg-secondary text-white" style="float: left; min-width: 20%; padding: 20px;">
 							Block <br><span data-blocks></span>
 						</div>
 						<div class="w-80" style="margin-left: 20%; padding-left: 30px;">
-							Miner : <a href="#wallet="><span data-miner></span></a><br>
-							<a href="#tx="><span data-tx></span></a> txs : <br>
+							Miner : <span data-miner></span><br>
+							<span data-tx></span> txs : <br>
 							Block Reward
 						</div>
 					</li>
@@ -110,8 +110,8 @@
 				data.blocks.reverse().forEach(function(item, index){
 					
 					var items = $(".blocks li").eq( index );
-					items.find('[data-blocks]').html('<a href="/blockchain/block/'+item.number+'">'+item.number+'</a>');
-					items.find('[data-miner]').text(item.miner);
+					items.find('[data-blocks]').html('<a style="color:#FFF;" href="/blockchain/block/'+item.number+'">'+item.number+'</a>');
+					items.find('[data-miner]').html('<a href="/blockchain/block/'+item.miner+'">'+item.miner+'</a>');
 					items.find('[data-tx]').text(item.transactions);
 					items.find('[data-amount]').text(item.value);
 				});
