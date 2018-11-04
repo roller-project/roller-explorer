@@ -1,0 +1,70 @@
+header{
+	-moz-box-align: stretch;
+
+	background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+
+	border-bottom: 1px solid rgb(212, 218, 223);
+
+	box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
+
+	z-index: 20;
+
+	display: flex;
+
+	align-items: stretch;
+
+	position: relative;
+
+	flex: 0 1 80px;
+
+	min-height: 80px;
+	background-color: #FFF;
+
+}
+ul{
+	padding: 0;
+	list-style: none;
+}
+header .navbar-collapse.show{
+	position: fixed;
+	top: 80px;
+	width: 80%;
+	height: 100%;
+	left: 0;
+	background-color: #FFF;
+	border-right:1px solid #ddd;
+}
+
+.menu-left{
+	position: -webkit-sticky;
+	position: sticky;
+	top: 4rem;
+	z-index: 1000;
+	height: calc(100vh - 4rem);
+	background-color: #f5f7f9;
+}
+.menu-left .content{
+	max-height: calc(100vh - 5rem);
+	overflow-y: auto;
+	padding-right: 30px;
+}
+.slider{
+	background-image: url(https://i-vnexpress.vnecdn.net/2018/06/30/7-1530344842_1200x0.jpg);
+	height: 350px;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	background-size: cover;
+}
+footer{
+	position: relative;
+	padding:50px;
+	background-color: #444;
+	color: #FFF; 
+}
+
+@media(min-width: 1650px){
+	.container{
+		min-width: 1600px;
+	}
+}
+
