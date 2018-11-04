@@ -128,7 +128,7 @@
 
     
     <main class="container">
-        
+        <br>
            <?php print_r($content);?>
            
     </main>
