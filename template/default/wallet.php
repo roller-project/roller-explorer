@@ -14,9 +14,9 @@
 	<div class="col">
 		<div class="card">
 			<div class="card-body">
-				<button type="button" class="btn btn-success">Create Tokens</button>
-				<button type="button" class="btn btn-danger">Send Transactions</button>
-				<button type="button" class="btn btn-warning">Send Exchange</button>
+				<button type="button" class="btn btn-outline-success">Create Tokens</button>
+				<button type="button" class="btn btn-outline-danger">Send Transactions</button>
+				<button type="button" class="btn btn-outline-warning">Send Exchange</button>
 			</div>
 		</div>
 	</div>
@@ -24,10 +24,29 @@
 </div>
 <br>
 <h3>Token Balance</h3>
-<button type="button" class="btn btn-outline-success">200 SLN</button>
-<button type="button" class="btn btn-outline-success">200 ROLX</button>
-<button type="button" class="btn btn-outline-success">200 RXT</button>
 
+<table class="table">
+	<thead>
+		
+		<th>Form</th>
+		<th>To</th>
+		<th>Amount</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<?php 
+		$tokens = ["ROLX" => 2000, "SNL" => 7000, "ENT" =>"8000"];
+		foreach ($tokens as $key => $value) { ?>
+			
+		<tr>
+			<td><?php echo $key;?></td>
+			<td><?php echo $value;?></td>
+			<td><?php echo date("r");?></td>
+			<td class="text-right">Exchange</td>
+		</tr>
+		<?php } ?>
+	</tbody>
+</table>
 <br><br>
 <h3>Transactions</h3>
 <table class="table">
