@@ -47,7 +47,7 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
 
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/spaces%2F-LQDaH_qYRQ9MAWqUKcK%2Favatar.png?generation=1541064437424233&alt=media" width="30" height="30" class="d-inline-block align-top" alt="">
                     Smarts Explorer
                 </a>
@@ -62,7 +62,7 @@
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Exchange</a>
+                    <a class="nav-link" href="https://smarts.exchange" target="_bank">Exchange</a>
                   </li>
 
                   <li class="nav-item dropdown">
@@ -70,10 +70,10 @@
                       Tokens
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">List Tokens</a>
-                      <a class="dropdown-item" href="#">Create Tokens</a>
+                      <a class="dropdown-item" href="/tokens">List Tokens</a>
+                      <a class="dropdown-item" href="/tokens/create">Create Tokens</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Exchange</a>
+                      <a class="dropdown-item" href="https://smarts.exchange" target="_bank">Exchange</a>
                     </div>
                   </li>
 
@@ -84,20 +84,20 @@
                       Masternode
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Masternode API</a>
+                      <a class="dropdown-item" href="/masternode/api">Masternode API</a>
                       <a class="dropdown-item" href="#">Masternode Setup</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Masternode List</a>
+                      <a class="dropdown-item" href="/masternode/list">Masternode List</a>
                     </div>
                   </li>
 
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Account</a>
+                    <a class="nav-link" href="/account">Account</a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="#">API</a>
+                    <a class="nav-link" href="/api">API</a>
                   </li>
 
                   <li class="nav-item dropdown">
@@ -117,9 +117,9 @@
                   </li>
 
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline my-2 my-lg-0" method="get" action="/blockchain/lockup">
+                  <input class="form-control mr-sm-2" name="input" type="search" placeholder="Enter wallet, tx, blocknumber" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lockup</button>
                 </form>
               </div>
           </div>

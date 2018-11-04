@@ -11,14 +11,14 @@
 	</div>
 	<div class="col-xs-12 col-lg-6" style="margin-bottom: 30px;">
 		<div class="btn-primary" style="padding: 30px;">
-			Fork : <br>
+			Fork : 1,200,000<br>
 			Account : 3,000,000<br>
 			Prices : 0.0126$<br>
 			Exchange : https://smarts.exchange
 		</div>
 	</div>
 </div>
-
+<hr>
 <div class="row">
 	<div class="col-xs-12 col-lg-6" style="margin-bottom: 30px;">
 		<h4>Blocks
@@ -34,7 +34,7 @@
 				<?php for($i=0; $i<10; $i++){ ?>
 				 	<li  style="position: relative; display: block; margin-bottom: 10px; overflow: hidden;">
 						<div class="w-20 bg-info text-white" style="float: left; min-width: 20%; padding: 20px;">
-							Block <br><a href="#block=" class=text-white" style="color:#FFF;"><span data-blocks></span></a>
+							Block <br><span data-blocks></span>
 						</div>
 						<div class="w-80" style="margin-left: 20%; padding-left: 30px;">
 							Miner : <a href="#wallet="><span data-miner></span></a><br>
@@ -67,9 +67,9 @@
 					</div>
 					<div class="w-80" style="margin-left: 20%; padding-left: 30px;">
 
-					<a href="#tx="><span data-tx></span></a><br>
-					Form : <a href="#wallet="><span data-form></span></a> <br>
-					To : <a href="#wallet="><span data-to></span></a>
+					<div data-tx></div>
+					Form : <span data-form></span> <br>
+					To : <span data-to></span>
 					
 				</div>
 			</li>
@@ -91,24 +91,26 @@
 	jQuery(document).ready(function(){
 		var loaddata = function(){
 			$.getJSON( "/blockchain/dashboard").done(function(data){
+				
 
 				$("[data-block-number]").text(data.blocknumer);
-				$("[data-block-time]").text(0);
-				$("[data-hashrate]").text(0);
+				$("[data-block-time]").text(data.blocktime+" (s)");
+				$("[data-hashrate]").text(data.hashrate);
 				data.transactions.reverse().forEach(function(item, index){
 					
 					var items = $(".transactions li").eq( index );
-					items.find('[data-tx]').text(item.hash);
-					items.find('[data-form]').text(item.from);
-					items.find('[data-to]').text(item.to);
+					items.find('[data-tx]').html('<a href="/blockchain/tx/'+item.hash+'">'+item.hash+'</a>');
+					items.find('[data-form]').html('<a href="/blockchain/wallet/'+item.from+'">'+item.from+'</a>');
+					items.find('[data-to]').html('<a href="/blockchain/wallet/'+item.to+'">'+item.to+'</a>');
 					items.find('[data-amount]').text(item.value);
 				});
 
+				
 
 				data.blocks.reverse().forEach(function(item, index){
 					
 					var items = $(".blocks li").eq( index );
-					items.find('[data-blocks]').text(item.number);
+					items.find('[data-blocks]').html('<a href="/blockchain/block/'+item.number+'">'+item.number+'</a>');
 					items.find('[data-miner]').text(item.miner);
 					items.find('[data-tx]').text(item.transactions);
 					items.find('[data-amount]').text(item.value);

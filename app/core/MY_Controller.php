@@ -41,7 +41,7 @@ class BaseController extends CI_Controller{
 	public function view($layout, $data=[]){
 		
 		$is_login = 1;
-		$data = array_merge($data,["is_login" => $is_login]);
+		//$data = array_merge($data,["is_login" => $is_login]);
 		
 		if($this->getLayout()){
 
@@ -84,6 +84,11 @@ class BaseController extends CI_Controller{
 			return true;
 		}
 		return false;
+	}
+
+	public function go($url=""){
+		redirect(site_url($url));
+		exit();
 	}
 
 	/*
