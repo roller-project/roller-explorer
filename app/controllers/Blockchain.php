@@ -102,8 +102,36 @@ class Blockchain extends HomeController {
 
 
 	public function wallet($wallet, $format=false){
-		$datas = [];
-		$this->view("wallet",["data" =>$datas, "controller" => $this->connect]);
+		$datas = $this->connect->eth_getBalance($wallet,"latest",true);
+		
+		$blockLast = $this->connect->eth_blockNumber(true);
+		$arvs = [];
+		$blocks = [];
+
+		for ($i=$blockLast - 500; $i < $blockLast; $i++) { 
+			//$blockNum = $this->blockCount;
+			$block = $this->connect->eth_getBlockByNumber('0x'.dechex($i));
+			
+			if(count($block->transactions) > 0){
+				
+				//$tx = $block->transactions[0];
+				
+				$trasic = $this->connect->eth_getTransactionByBlockHashAndIndex($block->hash, '0x0');
+				if($trasic->from == $wallet || $trasic->to == $wallet){
+					$trasic->value = $this->connect->decode_hex($trasic->value)/$this->bigum;
+					$trasic->blockNumber = $this->connect->decode_hex($trasic->blockNumber);
+					$trasic->gas = $this->connect->decode_hex($trasic->gas)/$this->bigum;
+					$trasic->gasPrice = $this->connect->decode_hex($trasic->gasPrice)/$this->bigum;
+					$trasic->v = $this->connect->decode_hex($trasic->v);
+					$arvs[] = $trasic;
+				}
+				
+			}
+			
+			
+		}
+
+		$this->view("wallet",["balance" =>$datas, "wallet" => $wallet,"transactions" => $arvs, "controller" => $this->connect]);
 	}
 
 	public function addr($wallet){
