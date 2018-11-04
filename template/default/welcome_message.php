@@ -111,7 +111,7 @@
 					
 					var items = $(".blocks li").eq( index );
 					items.find('[data-blocks]').html('<a style="color:#FFF;" href="/blockchain/block/'+item.number+'">'+item.number+'</a>');
-					items.find('[data-miner]').html('<a href="/blockchain/block/'+item.miner+'">'+item.miner+'</a>');
+					items.find('[data-miner]').html('<a href="/blockchain/wallet/'+item.miner+'">'+item.miner+'</a>');
 					items.find('[data-tx]').text(item.transactions);
 					items.find('[data-amount]').text(item.value);
 				});
