@@ -68,3 +68,12 @@ footer{
 	}
 }
 
+.data {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.fromto{
+    max-width: 100px;
+}

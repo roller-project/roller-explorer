@@ -32,8 +32,8 @@
 
 			<ul class="blocks">
 				<?php for($i=0; $i<10; $i++){ ?>
-				 	<li  style="position: relative; display: block; margin-bottom: 10px; overflow: hidden;">
-						<div class="w-20 bg-secondary text-white" style="float: left; min-width: 20%; padding: 20px;">
+				 	<li  style="font-size: 14px; position: relative; display: block; margin-bottom: 20px; overflow: hidden; min-height: 60px;max-height: 60px; ">
+						<div class="w-20 bg-secondary text-white" style="float: left; min-width: 20%; max-width: 100%; padding: 10px;">
 							Block <br><span data-blocks></span>
 						</div>
 						<div class="w-80" style="margin-left: 20%; padding-left: 30px;">
@@ -58,20 +58,16 @@
 		<div class="fixheight">
 		<ul class="transactions">
 			<?php for($i=0; $i<10; $i++){ ?>
-			 <li style="position: relative;margin-bottom: 10px; overflow: hidden; display: block;">
-					<div class="w-20 bg-primary text-white" style="float: left; min-width: 20%; padding: 20px; overflow: hidden;">
-						Amount <br><div style="white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100px;" data-amount></div>
+			 <li style="font-size: 14px; position: relative;margin-bottom: 20px; min-height: 60px;max-height: 60px; overflow: hidden; display: block;">
+					<div class="w-20 bg-primary text-white" style="float: left; min-width: 130px; max-width: 130px; padding: 10px; overflow: hidden;">
+						Amount <br>
+						<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100px;" data-amount></div>
 					</div>
-					<div class="w-80" style="margin-left: 20%; padding-left: 30px;">
-
-					<div data-tx></div>
-					Form : <span data-form></span> <br>
-					To : <span data-to></span>
-					
-				</div>
+					<div class="w-80 data" style="margin-left: 20%; padding-left: 30px;">
+					Tx: <span data-tx> </span> <br>
+					Form: <span data-form></span><br>
+					To: <span data-to></span>
+					</div>
 			</li>
 			<?php } ?>
 		</ul>
@@ -86,8 +82,8 @@
 		min-height:450px; 
 	}
 </style>
-<script type="text/javascript">
 
+<script type="text/javascript">
 	jQuery(document).ready(function(){
 		var loaddata = function(){
 			$.getJSON( "/blockchain/dashboard").done(function(data){
@@ -124,7 +120,4 @@
 		
 		
 	});
-
-
-
 </script>
